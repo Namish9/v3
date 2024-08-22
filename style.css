@@ -1,0 +1,256 @@
+:root {
+  --c1: #ff0000;
+  --c2: #030821;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('background.gif');
+  background-size: cover;
+  background-position: center;
+  /* filter: blur(5px); */
+  z-index: -1;
+}
+
+header {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.mods-button {
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  padding: 5px 10px;
+}
+
+.mods-button::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: red;
+  backdrop-filter: ;
+  transition: all 0.1s ease;
+}
+
+.mods-button:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.profile {
+  margin-bottom: 40px;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: none;
+  /* border: 3px solid #ff00ff;
+  border-top: 3px solid #ff00ff;
+  border-left: 3px solid #ff00ff;
+  border-right: 3px solid #00ffff;
+  border-bottom: 3px solid #00ffff; */
+  box-shadow: 0 0 20px var(--c1);
+}
+
+.username {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 16px 0 8px;
+  background: linear-gradient(45deg, var(--c1), var(--c2));
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px var(--c1);
+}
+
+.bio {
+  font-size: 18px;
+  color: #b8b8b8;
+  margin: 0;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* opacity: 0.5 */
+}
+
+.link-item {
+  background: linear-gradient(45deg, var(--c1), var(--c2));
+  color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  /* opacity: 0.5; */
+}
+
+.link-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgb(4, 1, 1, 0.3) 100%);
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+
+.link-item:hover::before {
+  opacity: 1;
+}
+
+.link-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px var(--c1);
+  opacity: 0.7;
+}
+
+.link-title {
+  font-size: 16px;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+
+.discord-btn {
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.copy-notification {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px var(--c1);
+  }
+
+  50% {
+    box-shadow: 0 0 20px var(--c1), 0 0 30px var(--c2);;
+  }
+
+  100% {
+    box-shadow: 0 0 5px var(--c1);
+  }
+}
+
+.link-item:active {
+  animation: glow 0.5s ease-in-out;
+}
+
+.mods-section {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 40px 20px;
+  margin-top: 40px;
+}
+
+.mod-container {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.mod-item {
+  margin-bottom: 20px;
+  border: 1px solid var(--c1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mod-item h3 {
+  background: linear-gradient(45deg, var(--c1), var(--c2));
+  color: #fff;
+  padding: 10px;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toggle-btn {
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
+
+.mod-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding: 0 10px;
+}
+
+.mod-content.active {
+  max-height: 500px;
+  padding: 10px;
+}
+
+.install-guide {
+  margin-top: 20px;
+}
+
+.install-guide a {
+  color: #00ffff;
+  text-decoration: none;
+}
+
+.install-guide a:hover {
+  text-decoration: underline;
+}
+
+.mid-align {
+  margin:none;
+  text-align: center;
+}
+.f14{
+  font-size: 2.5rem;
+}
